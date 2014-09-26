@@ -32,7 +32,6 @@
         display:inline-block;
         line-height:50px;
         font-size:16px;
-        color:#5c5c5c;
         font-weight:600;
         cursor:pointer;
         text-align:center;
@@ -41,8 +40,13 @@
         overflow:hidden;
     }
     
-    li.active{
+    li.active a{
         color:#ec2022;
+    }
+    
+    li a{
+        text-decoration:none;
+        color:#5c5c5c;
     }
     
     #content{
@@ -52,7 +56,7 @@
     
     .item{
         width:100%;
-        height:100px;
+        height:80px;
         padding:3%;
         position:relative;
         border-bottom:1px solid #dbdbdb;
@@ -65,26 +69,27 @@
     }
     
     .item .detail{
-        width:66%;
+        width:63%;
         height:100%;
         float:left;
         clear:right;
         padding-left:3%;
+        padding-right:3%;
     }
     
     .title{
         color:#121212;
         font-size:18px;
-        line-height:35px;
-        height:35px;
+        line-height:30px;
+        height:30px;
         overflow:hidden;
     }
     
     .desc{
         color:#a6a6a6;
         font-size:16px;
-        line-height:30px;
-        height:60px;
+        line-height:25px;
+        height:50px;
         overflow:hidden;
         word-wrap: break-word;
         word-break: normal;
@@ -92,12 +97,12 @@
     
 </style>
 <ul id="menu">
-    <li class="active">互联网</li>
-    <li>产品</li>
-    <li>创业</li>
-    <li>广告圈</li>
-    <li>科学</li>
-    <li>IT</li>
+    <li class="active"><a href="#">互联网</a></li>
+    <li><a href="#">产品</a></li>
+    <li><a href="#">创业</a></li>
+    <li><a href="#">广告圈</a></li>
+    <li><a href="#">科学</a></li>
+    <li><a href="#">IT</a></li>
 </ul>
 <div id="content">
     <div class="item">
