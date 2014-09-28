@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+<head>
+    <title>mobile</title>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Mobile web solutions, based on project Mars.">
+    <meta name="author" content="yyc">
+    <link rel="stylesheet" href="/framework/ui/css/mui-base.css" />
+    <link rel="stylesheet" type="text/css" href="/framework/ui/css/mui-button.css" />
+</head>
+<body>
+  <style>
+#w{
+    -webkit-user-select: none;
+    width: 300px; 
+    height: 300px;
+    background: black;
+    font-size: 38px;
+    font-weight: bold;
+    color: orange;
+}
+</style>
+
+<div class="container">
+    <h4>tap doubletap swipe drag transform hold等手势</h4>
+    <div id="w" class="ww"></div>
+    <div id="currentPos"></div>
+    <div id="preTouchPos"></div>
+</div>
+<script type="text/javascript" src="JM.js"></script>
+<script type="text/javascript">
+
+    var wobj = J.dom.id("w");
+    J.event.on(wobj,"touchmove touchstart touchend",function(e){
+        e.stopPropagation();
+        e.preventDefault();
+    });
+
+    J.event.on(wobj,"hold",function(e){
+        // alert(e.position.x+" "+ e.position.y);
+        wobj.innerHTML="hold";
+    });
+    J.event.on(wobj,"tap",function(e){
+        if(e.isDoubleTap) wobj.innerHTML="doubletap";
+        // alert(e.position.x);
+        else wobj.innerHTML="tap";
+    });
+    J.event.on(wobj,{
+        dragstart:function() {
+            wobj.innerHTML="dragstart";
+        },
+        drag:function(e){
+
+            //console.log(e.angle);
+            wobj.innerHTML="drag";
+        },
+        dragend:function(e){
+            // alert(e.distance + " " + e.angle);
+            wobj.innerHTML="dragend";
+        },
+        swipe:function(e){
+            wobj.innerHTML="swipe" + e.direction ;
+        },
+        transformstart:function(e){
+            // cm.dom.id("preTouchPos").innerHTML = (e.position.x);
+            wobj.innerHTML="transformstart";
+        },
+        transform:function(e){
+            wobj.innerHTML="transform: "
+                           +"scale:" + e.scale 
+                           +"<br/>"
+                           +"rotation:" + e.rotation;
+            wobj.style["-webkit-transform"] = "rotate("+e.rotation+"deg) scale("+e.scale+")";
+        },
+        transformend:function(e){
+            // alert(e.rotation);
+            wobj.innerHTML="transformend";
+        }
+    });
+</script>
+</body>
+</html>
