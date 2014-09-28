@@ -167,5 +167,16 @@
         </div>
     </div>
 </div>
+<input type="hidden" id="history" value="menu.html"></input>
+<script type="text/javascript" src="/jquery/jquery-1.11.1.min.js"></script>
+<script type="text/javascript" src="/jquery/jquery.mobile-1.4.4.min.js"></script>
+<!-- <script type="text/javascript" src="/jquery/jquery.mobile-1.4.4.min.map"></script> -->
+
+<script type="text/javascript">
+    $(".item").bind('swiperight', function(){
+        var url = $("#history").val();
+        location.href = url;
+    });
+</script>
 </body>
 </html>
